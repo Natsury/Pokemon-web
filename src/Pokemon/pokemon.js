@@ -10,6 +10,7 @@ async function GetPokemon(nom){
         const request = new Request(urlMetamorphe)
         const reponse = await fetch(request)
         const json = await reponse.json()
+        console.log(json)
         return json
     }
 }
