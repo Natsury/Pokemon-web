@@ -1,10 +1,14 @@
 import './CadreBattle.css';
+import GetPokemon from './Pokemon/pokemon';
 
 //  Données de métamorphe
+/*
 const urlMetamorphe = "https://pokeapi.co/api/v2/pokemon/rayquaza-mega"
 const request = new Request(urlMetamorphe)
 const reponse = await fetch(request)
 const json = await reponse.json()
+*/
+const json = await GetPokemon("rayquaza-mega")
 
 //  Données de Gros tas de morve
 const urlTasDeMorve = "https://pokeapi.co/api/v2/pokemon/muk"
