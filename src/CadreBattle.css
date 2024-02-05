@@ -1,0 +1,148 @@
+.Main-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1dvh;
+    /*background-color: greY;*/
+    height: 75dvh;  
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 130px;
+}
+
+img{
+    image-rendering:crisp-edges;
+}
+
+.Box-fight{
+    display: flex;
+    flex-direction: column;
+    /*background-color: brown;*/
+    width: 60%;
+    margin: auto;
+    height: 100%;
+}
+
+/*Regarde a bien mettre la classe*/
+.Box-battle{
+    display: flex;
+    width: 100%;
+    height: 50%;
+}
+
+.Img-ennemy{
+    margin-left: auto;
+}
+
+.Infos{
+    display: flex;
+    flex-wrap: wrap;
+    /*margin-left: 10dvw;*/
+    margin-top: 2dvh;
+    /*  Permet de faire un dégradé de gris vers le blanc
+    background: rgb(123,133,150);
+    background: linear-gradient(90deg, rgba(123,133,150,1) 0%, rgba(152,157,165,1) 51%, rgba(255,255,255,1) 95%);
+    */
+    padding: 2px 50px;
+    width: 370px;
+    border-radius: 10px;
+    padding: 20px 30px;
+    border: black double 8px;
+
+    .name{
+        width: 70%;
+    }
+
+    .lvl{
+        width: 21%;
+        text-align: end;
+    }
+
+    label{
+        width: 30%;
+        margin-bottom: 20px;
+    }
+}
+
+.Info-ally{
+    margin-left: auto;
+    height: 87px;
+}
+
+.Info-ennemy{
+    height: 70px;
+}
+
+
+
+.Hp-bar{
+    border: solid;
+    border-color: black;
+    width: 300px;
+    height: 20px;
+    background-color: rgb(0,255,0);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.HP{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    label{
+        text-align: center;
+        margin: 10px auto 0px auto;
+    }
+}
+
+.battle-choice{
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 19vh;
+    background-color: #f8f8f8;
+    border: solid;
+
+    .content{
+        width: 70%;
+        border: 5px black double;
+        border-radius: 5px;
+        margin: 5px 2px 5px 5px;
+
+    }
+
+    .choice{
+
+        width: 30%;
+        display: flex;
+        flex-wrap: wrap;
+        border: 5px double black;
+        border-radius: 5px;
+        margin: 5px 10px 5px 2px;
+        justify-content: center;
+
+        .option{
+            display: flex;
+            margin: 5px;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+            width: 42%;
+            cursor:pointer;
+
+            label{
+                margin: auto;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        }
+
+        .option:hover{
+
+            label{
+                transform: scale(0.8);
+                transition: transform ease-in-out 0.1s;
+            }
+        }
+    }
+}
