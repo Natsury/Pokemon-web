@@ -7,8 +7,8 @@ export interface Pokemon{
     def: number             //  Défense du Pokemon
     hp: number              //  Vie du Pokemon
     speed: number           //  Vitesse du Pokemon (Permet de définir quel Pokemon attaque en premier)
-    types: Array<type>      //  Type du Pokemon
+    types: type[]      //  Type du Pokemon
     lvl: number             //  Niveau du Pokemon
     special: number         //  Attaque et défense spéciale du Pokemon
-    moves: Array<Move>      //  Attaques disponible du Pokemon
+    moves: Move[]      //  Attaques disponible du Pokemon
 }
