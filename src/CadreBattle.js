@@ -1,5 +1,5 @@
 import './CadreBattle.css';
-import GetPokemon from './Pokemon/pokemon';
+import GetPokemon from './Pokemon/pokemon.tsx';
 
 //  Données de métamorphe
 /*
