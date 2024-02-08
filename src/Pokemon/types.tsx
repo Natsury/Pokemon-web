@@ -11,7 +11,7 @@ export const normal:type = {
 
 export const fire:type = {
     nom: "fire",
-    color: "#FFFFFF",
+    color: "#fe9a55",
     weakness: [],
     imunities: [],
 }
