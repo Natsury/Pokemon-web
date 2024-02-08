@@ -23,8 +23,8 @@ export const water:type = {
     imunities: [],
 }
 
-export const electrik:type = {
-    nom: "electrik",
+export const electric:type = {
+    nom: "electric",
     color: "#f4d13b",
     weakness: [],
     imunities: [],
