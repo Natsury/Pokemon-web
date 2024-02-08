@@ -4,4 +4,5 @@ export interface Move{
     power: number       //  Puissance
     accuracy: number    //  Précision
     pp: number          //  Nombre d'utilisation du move
+    category: string    //  Dégats Spécial ou physique
 }
