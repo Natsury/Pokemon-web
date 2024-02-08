@@ -1,5 +1,3 @@
-import React from "react";
-
 /**
  * Effectue une requete HTTP à l'url demandée
  * @param url l'url de la requete
@@ -7,7 +5,7 @@ import React from "react";
  */
 export async function getAPI(url:string) {
     try{
-        let request = new Request(url)
+        let request:Request = new Request(url)
         let reponse = await fetch(request)
         let json = await reponse.json()
         return json
