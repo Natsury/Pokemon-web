@@ -1,7 +1,7 @@
 import { Move } from '../Interfaces/IMove';
 import { type } from '../Interfaces/IType';
-import * as typesDispo from "./types.tsx";
-import { getAPI } from "../Tools/toolBox.tsx"
+import { getAPI, getType } from "../Tools/toolBox.tsx"
+
 
 
 /**
@@ -17,7 +17,6 @@ export async function Moves(json:any){
         let rand = Math.floor(Math.random() * json.length)
 
         if(!isPickedUp.includes(rand)){
-
             isPickedUp.push(rand)                                              //  On met l'indice dans le tableau des déjà pris
 
             let infoMove = await getAPI(json[rand]["move"]["url"])             //  On récupère toutes les info du Move
@@ -30,13 +29,4 @@ export async function Moves(json:any){
         }
     }
     return moves
-}
-
-/**
- * Retourne le type demandé
- * @param typeMove Type à récupérer
- * @returns Un objet type || Retourne le type normal si le type demandé n'existe pas
- */
-function getType(typeMove:string):type{
-    return typesDispo[typeMove] || typesDispo.normal
 }

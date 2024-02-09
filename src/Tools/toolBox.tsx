@@ -1,3 +1,6 @@
+import * as typesDispo from "../Pokemon/types.tsx";
+import { type } from "../Interfaces/IType.ts";
+
 /**
  * Effectue une requete HTTP à l'url demandée
  * @param url l'url de la requete
@@ -13,4 +16,14 @@ export async function getAPI(url:string) {
         console.log(e)
         
     }
+}
+
+
+/**
+ * Retourne le type demandé
+ * @param typeMove Type à récupérer
+ * @returns Un objet type || Retourne le type normal si le type demandé n'existe pas
+ */
+export function getType(typeMove:string):type{
+    return typesDispo[typeMove] || typesDispo.normal
 }
