@@ -1,5 +1,5 @@
 import './CadreBattle.css';
-import {GetPokemon, GetPokemonAPI} from './Pokemon/pokemon.tsx';
+import {GetPokemonAPI} from './Pokemon/pokemon.tsx';
 
 //  Données de métamorphe
 /*
@@ -30,10 +30,10 @@ function CadreBattle() {
                   </div>
                 </div>
               </div>
-              <img className="Img-ennemy" src={json["sprites"]["front_shiny"]} alt="Image du Pokemon adverse"/>
+              <img className="Img-ennemy" src={json["sprites"]["front_shiny"]} alt="Pokemon adverse"/>
             </div>
             <div className="Box-battle Player">
-              <img className="Img-pokemon-player" src={json1["sprites"]["back_shiny"]} alt="Image du Pokemon du joueur"/>
+              <img className="Img-pokemon-player" src={json1["sprites"]["back_shiny"]} alt="Pokemon du joueur"/>
               <div className='Info-ally Infos'>
                 <label htmlFor="Player" className="name">{json1["name"].toUpperCase()}</label>
                 <label htmlFor="lvl" className='lvl'>Lv12</label>

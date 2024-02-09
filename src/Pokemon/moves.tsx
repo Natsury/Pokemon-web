@@ -2,7 +2,6 @@ import { Move } from '../Interfaces/IMove';
 import { type } from '../Interfaces/IType';
 import * as typesDispo from "./types.tsx";
 import { getAPI } from "../Tools/toolBox.tsx"
-import { info } from 'console';
 
 
 /**
@@ -10,18 +9,16 @@ import { info } from 'console';
  * @param json Tableau contenant les moves disponnibles
  * @returns un tableau de 4 moves 
  */
-export async function Moves(json){
+export async function Moves(json:any){
     let moves:Move[] = []           //  Tableau des attaques du pokemon
     let isPickedUp:Number[] = []    // Tableau des attaques déjà prises
     
-    
-    while(moves.length != 4){
-
+    while(moves.length !== 4){
         let rand = Math.floor(Math.random() * json.length)
 
         if(!isPickedUp.includes(rand)){
 
-            isPickedUp.push(rand)                                       //  On met l'indice dans le tableau des déjà pris
+            isPickedUp.push(rand)                                              //  On met l'indice dans le tableau des déjà pris
 
             let infoMove = await getAPI(json[rand]["move"]["url"])             //  On récupère toutes les info du Move
             let typeMove:type = getType(infoMove["type"]["name"])

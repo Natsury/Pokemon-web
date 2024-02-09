@@ -1,8 +1,5 @@
-import React from 'react';
-import { Pokemon } from '../Interfaces/IPokemon';
-import { info } from 'console';
-import { Moves } from './moves';
-
+//import { Pokemon } from '../Interfaces/IPokemon';
+import {Moves} from './moves.tsx'
 /**
  * Récupère les information du pokémon demandé sur PokéAPI
  * @param {string} nom Nom du Pokémon
@@ -25,28 +22,27 @@ export async function GetPokemon(nom:string){
  */
 export async function GetPokemonAPI(nomPokemon:string) {
     if(nomPokemon != null){
-        const urlMetamorphe = "https://pokeapi.co/api/v2/pokemon/"+nomPokemon
-        const request = new Request(urlMetamorphe)
+        const url = "https://pokeapi.co/api/v2/pokemon/"+nomPokemon
+        const request = new Request(url)
         const reponse = await fetch(request)
         const json = await reponse.json()
 
         const infoPokemon:any = []                                          // 0 : hp
         json["stats"].forEach(uneStat => {                                  // 1 : attaque
-            if(uneStat["stat"]["name"] != "special-defense"){
+            if(uneStat["stat"]["name"] !== "special-defense"){
                 infoPokemon.push(uneStat["base_stat"])                      // 2 : defense
             } else {                                                        // 3 : special
                 let moyenne = (infoPokemon[3] + uneStat["base_stat"]) / 2   // 4 : speed
-                infoPokemon[3] = moyenne
+                infoPokemon[3] = moyenne                                    // Comme on fait une stat "special" global, je fais la moyenne de l'atq spé et def spé du pokemon
             }        
         });                                            
-        console.log(json["moves"])                      
-        console.log(infoPokemon)
 
+        let moves = await Moves(json["moves"])
 
-
+        console.log(moves)
         /*
         const pokemon:Pokemon = {nom: json["name"].toUpperCase(), atk: infoPokemon[1], def: infoPokemon[2],
-                                     hp: infoPokemon[0], special: infoPokemon[3], speed: infoPokemon[4], moves: Moves(json)}
+                                    hp: infoPokemon[0], special: infoPokemon[3], speed: infoPokemon[4], moves: Moves(json)}
                                      */
         return json
     }

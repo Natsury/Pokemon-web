@@ -1,6 +1,4 @@
-import React from "react";
 import { type } from "../Interfaces/IType";
-
 
 export const normal:type = {
     nom: "normal",
