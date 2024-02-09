@@ -1,6 +1,6 @@
 import { Pokemon } from '../Interfaces/IPokemon';
 import { type } from '../Interfaces/IType.ts';
-import {Moves} from './moves.tsx'
+import { Moves } from './moves.tsx'
 import { getType } from '../Tools/toolBox.tsx';
 
 const lvlPokemon:number = 50        //  Défini le niveau des pokemon
@@ -50,11 +50,16 @@ export async function GetPokemonAPI(nomPokemon:string) {
             typesDuPokemon.push(getType(unType["type"]["name"]))
         });
         
-        
+        let spritesPokemon:string[] = []                            
+
+        spritesPokemon.push(json["sprites"]["front_shiny"])                //   0 : Front
+        spritesPokemon.push(json["sprites"]["back_shiny"])                 //   1 : Back
+
         const pokemon:Pokemon = {nom: json["name"].toUpperCase(), atk: infoPokemon[1], def: infoPokemon[2],
-                                    hp: infoPokemon[0], special: infoPokemon[3], speed: infoPokemon[4], moves: moves, types: typesDuPokemon, lvl: lvlPokemon}
+                                    hp: infoPokemon[0], special: infoPokemon[3], speed: infoPokemon[4], 
+                                    moves: moves, types: typesDuPokemon, lvl: lvlPokemon, sprites: spritesPokemon}
 
                                   
-        return json
+        return pokemon
     }
 }

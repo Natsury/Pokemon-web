@@ -58,7 +58,7 @@ img{
     }
 
     label{
-        width: 30%;
+        width: fit-content;
         margin-bottom: 20px;
     }
 }

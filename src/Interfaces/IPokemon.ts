@@ -11,4 +11,5 @@ export interface Pokemon{
     lvl: number             //  Niveau du Pokemon
     special: number         //  Attaque et défense spéciale du Pokemon
     moves: Move[]           //  Attaques disponible du Pokemon 
+    sprites:string[]        //  Sprites de devant et derrière du Pokemon
 }
