@@ -109,11 +109,14 @@ img{
         border: 5px black double;
         border-radius: 5px;
         margin: 5px 2px 5px 5px;
+        padding-top: 5px;
 
+        label{
+            margin-left: 5px;
+        }
     }
 
     .choice{
-
         width: 30%;
         display: flex;
         flex-wrap: wrap;

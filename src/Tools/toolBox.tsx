@@ -1,5 +1,7 @@
 import * as typesDispo from "../Pokemon/types.tsx";
 import { type } from "../Interfaces/IType.ts";
+import * as explications from "./data.tsx"
+import { explication } from "../Interfaces/IExplication.ts";
 
 /**
  * Effectue une requete HTTP à l'url demandée
@@ -26,4 +28,13 @@ export async function getAPI(url:string) {
  */
 export function getType(typeMove:string):type{
     return typesDispo[typeMove] || typesDispo.normal
+}
+
+/**
+ * Retourne l'explication demandé 
+ * @param uneExplication le nom de l'explication demandé
+ * @returns L'explication avec son nom et sa description
+ */
+export function getExplication(uneExplication:string):explication{
+    return explications[uneExplication]
 }

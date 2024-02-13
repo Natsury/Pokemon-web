@@ -1,13 +1,7 @@
 import './CadreBattle.css';
-import {GetPokemonAPI} from './Pokemon/pokemon.tsx';
+import { GetPokemonAPI } from './Pokemon/pokemon.tsx';
+import { infoHover, infoHoverOut } from './controllers/hover.tsx';
 
-//  Données de métamorphe
-/*
-const urlMetamorphe = "https://pokeapi.co/api/v2/pokemon/rayquaza-mega"
-const request = new Request(urlMetamorphe)
-const reponse = await fetch(request)
-const json = await reponse.json()
-*/
 const pokemonEnnemy = await GetPokemonAPI("rayquaza-mega")
 const pokemonAlly = await GetPokemonAPI("muk")
 
@@ -43,20 +37,20 @@ function CadreBattle() {
 
         <div className='battle-choice'>
           <div className='content'>
-            <label htmlFor="blabla">Un truc cool d'écrit</label>
+            <label htmlFor="Aller faut faire le combat la" id='labelDescription'>Aller faut faire le combat la </label>
           </div>
           <div className='choice'>
             <div className="option">
-              <label htmlFor="FIGHT">FIGHT</label>
+              <label htmlFor="fight" onMouseEnter={infoHover} onMouseLeave={infoHoverOut}>FIGHT</label>
               </div>
             <div className="option">
-              <label htmlFor="BAG">BAG</label>
+              <label htmlFor="bag" onMouseEnter={infoHover} onMouseLeave={infoHoverOut}>BAG</label>
             </div>
             <div className="option">
-              <label htmlFor="POKÉMON">POKEMON</label>
+              <label htmlFor="pokemon" onMouseEnter={infoHover} onMouseLeave={infoHoverOut}>POKEMON</label>
             </div>
             <div className="option">
-              <label htmlFor="RUN">RUN</label>
+              <label htmlFor="run" onMouseEnter={infoHover} onMouseLeave={infoHoverOut}>RUN</label>
             </div>
           </div>
         </div>
