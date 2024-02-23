@@ -1,6 +1,6 @@
 import { Move } from '../Interfaces/IMove';
 import { type } from '../Interfaces/IType';
-import { getAPI, getType } from "../Tools/toolBox.tsx"
+import { getAPI, getType } from "../tools/toolBox.tsx"
 
 
 

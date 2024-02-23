@@ -1,10 +1,10 @@
 import { Pokemon } from '../Interfaces/IPokemon';
 import { type } from '../Interfaces/IType.ts';
 import { Moves } from './moves.tsx'
-import { getType } from '../Tools/toolBox.tsx';
+import { getType } from '../tools/toolBox.tsx';
 
 const lvlPokemon:number = 50        //  Défini le niveau des pokemon
-const statGrowth:number = 18        //  Croissance d'une stat
+const statGrowth:number = 5        //  Croissance d'une stat
 
 /**
  * Récupère les information du pokémon demandé sur PokéAPI
@@ -25,19 +25,19 @@ export async function GetPokemon(nom:string){
  * @param nomPokemon Le nom du Pokemon à chercher
  * @returns Je sais pas encore quoi return
  */
-export async function GetPokemonAPI(nomPokemon:string) {
+export async function GetPokemonAPI(nomPokemon:string):Promise<Pokemon | null> {
     if(nomPokemon != null){
-        const url = "https://pokeapi.co/api/v2/pokemon/"+nomPokemon
-        const request = new Request(url)
-        const reponse = await fetch(request)
-        const json = await reponse.json()
+        let url = "https://pokeapi.co/api/v2/pokemon/"+nomPokemon
+        let request = new Request(url)
+        let reponse = await fetch(request)
+        let json = await reponse.json()
 
-        const infoPokemon:any = []                                          // 0 : hp
-        json["stats"].forEach(uneStat => {                                  // 1 : attaque
+        const infoPokemon:any = []                                                                          // 0 : hp
+        json["stats"].forEach(uneStat => {                                                                  // 1 : attaque
             if(uneStat["stat"]["name"] !== "special-defense"){
-                infoPokemon.push(uneStat["base_stat"] + (statGrowth * lvlPokemon))                      // 2 : defense
-            } else {                                                        // 3 : special
-                let moyenne = (infoPokemon[3] + (uneStat["base_stat"] + (statGrowth * lvlPokemon))) / 2   // 4 : speed
+                infoPokemon.push(uneStat["base_stat"] + (statGrowth * lvlPokemon))                          // 2 : defense
+            } else {                                                                                        // 3 : special
+                let moyenne = (infoPokemon[3] + (uneStat["base_stat"] + (statGrowth * lvlPokemon))) / 2     // 4 : speed
                 infoPokemon[3] = moyenne                                    // Comme on fait une stat "special" global, je fais la moyenne de l'atq spé et def spé du pokemon
             }        
         });                                            
@@ -57,9 +57,10 @@ export async function GetPokemonAPI(nomPokemon:string) {
 
         const pokemon:Pokemon = {nom: json["name"].toUpperCase(), atk: infoPokemon[1], def: infoPokemon[2],
                                     hp: infoPokemon[0], special: infoPokemon[3], speed: infoPokemon[4], 
-                                    moves: moves, types: typesDuPokemon, lvl: lvlPokemon, sprites: spritesPokemon}
-
-                                  
+                                    moves: moves, types: typesDuPokemon, lvl: lvlPokemon, sprites: spritesPokemon}                         
         return pokemon
+    } else{
+        return null
     }
+    
 }

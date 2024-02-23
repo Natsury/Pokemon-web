@@ -1,9 +1,11 @@
-import './CadreBattle.css';
-import { GetPokemonAPI } from './Pokemon/pokemon.tsx';
-import { infoHover, infoHoverOut } from './controllers/hover.tsx';
+import '../style/CadreBattle.css';
+import { GetPokemonAPI } from '../Pokemon/pokemon.tsx';
+import { infoHover, infoHoverOut } from '../controllers/hover.tsx';
+import { onClickPrintMove } from '../controllers/affichageMove.tsx';
 
-const pokemonEnnemy = await GetPokemonAPI("rayquaza-mega")
-const pokemonAlly = await GetPokemonAPI("muk")
+
+export const pokemonEnnemy = await GetPokemonAPI("rayquaza-mega")
+export const pokemonAlly = await GetPokemonAPI("muk")
 
 function CadreBattle() {
   return (
@@ -36,12 +38,17 @@ function CadreBattle() {
         </div>
 
         <div className='battle-choice'>
-          <div className='content'>
+          <div className='content' id='content'>
+            <div className="description" id="description">
             <label htmlFor="Aller faut faire le combat la" id='labelDescription'>Aller faut faire le combat la </label>
+            </div>
+            <div className="displayMoves" id="displayMoves">
+              
+            </div>
           </div>
           <div className='choice'>
             <div className="option">
-              <label htmlFor="fight" onMouseEnter={infoHover} onMouseLeave={infoHoverOut}>FIGHT</label>
+              <label htmlFor="fight" onMouseEnter={infoHover} onMouseLeave={infoHoverOut} onClick={onClickPrintMove}>FIGHT</label>
               </div>
             <div className="option">
               <label htmlFor="bag" onMouseEnter={infoHover} onMouseLeave={infoHoverOut}>BAG</label>
