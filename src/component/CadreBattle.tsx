@@ -6,7 +6,7 @@ import { onClickPrintMove } from '../controllers/affichageMove.tsx';
 import { Move } from '../Interfaces/IMove.ts';
 import { AfficheEtatCombat } from '../controllers/affichageCommentaire.js';
 
-export const pokemonEnnemy = await GetPokemonAPI("muk")     //  Mettre le nom du pokemon en anglais
+export const pokemonEnnemy = await GetPokemonAPI("mewtwo")                         //  Mettre le nom du pokemon en anglais
 export const pokemonAlly = await GetPokemonAPI("rayquaza-mega")                 //  Mettre le nom du pokemon en anglais
 
 console.log(pokemonEnnemy)
@@ -85,7 +85,7 @@ async function battle(unMove:Move){
             document.location.href="http://localhost:3000/"   //  Relance une partie
           }
         }else{
-          AfficheEtatCombat(pokemonEnnemy.nom + " n'a absolument rien senti")
+          AfficheEtatCombat(pokemonAlly.nom + " n'a absolument rien senti")
           await sleep(2000)
         }
       }
