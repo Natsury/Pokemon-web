@@ -24,6 +24,14 @@ export async function infoHoverOut(component:any){
     if(lblDescription !== null){
         lblDescription.textContent = lblDescription.getAttribute("for")
     } else {
-        let lbl = document.createElement("label",)
+        let divDescription = document.getElementById('description')
+
+        let lbl = document.createElement("label")
+        lbl.setAttribute("id", "labelDescription")
+        lbl.setAttribute("for", "Aller faut faire le combat la")
+        lbl.textContent = "Aller faut faire le combat la"
+        
+
+        if(divDescription !== null) divDescription.appendChild(lbl)
     }
 }
