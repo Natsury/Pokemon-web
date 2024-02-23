@@ -19,7 +19,7 @@ export function infoHover(component:HTMLElement){
  * Réinitialise la description à son état d'origine
  * @param component Le label de description
  */
-export function infoHoverOut(component:any){
+export function infoHoverOut(){
     let divMoves = document.getElementById("displayMoves")
     if(divMoves !== null && divMoves.childElementCount === 0){
         let divDivision = document.getElementById('description')

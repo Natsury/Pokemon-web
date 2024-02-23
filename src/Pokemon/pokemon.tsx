@@ -4,7 +4,6 @@ import { Moves } from './moves.tsx'
 import { getType } from '../tools/toolBox.tsx';
 
 const lvlPokemon:number = 50        //  Défini le niveau des pokemon
-const statGrowth:number = 5        //  Croissance d'une stat
 
 /**
  * Récupère les information du pokémon demandé sur PokéAPI
@@ -32,14 +31,19 @@ export async function GetPokemonAPI(nomPokemon:string):Promise<Pokemon | null> {
         let reponse = await fetch(request)
         let json = await reponse.json()
         let moves = await Moves(json["moves"])                              //  On récupère les abilités du pokemon
-
         const infoPokemon:any = []                                                                          // 0 : hp
         json["stats"].forEach(uneStat => {                                                                  // 1 : attaque
-            if(uneStat["stat"]["name"] !== "special-defense"){
-                infoPokemon.push(uneStat["base_stat"] + (statGrowth * lvlPokemon))                          // 2 : defense
+            if(uneStat["stat"]["name"] !== "special-defense"){                                              // 2 : defense
+                if(uneStat["stat"]["name"] === "hp"){
+                    let calcul = ( ((2 * uneStat["base_stat"]) * lvlPokemon) / 100) + lvlPokemon + 10       //  Calcul de la croissance de la stat hp
+                    infoPokemon.push(calcul)
+                }else{
+                    let calcul = ( ((2 * uneStat["base_stat"]) * lvlPokemon) / 100) + 5                     //  Calcul de la croissance des autres stats
+                    infoPokemon.push(calcul)  
+                }                        
             } else {                                                                                        // 3 : special
-                let moyenne = (infoPokemon[3] + (uneStat["base_stat"] + (statGrowth * lvlPokemon))) / 2     // 4 : speed
-                infoPokemon[3] = moyenne                                    // Comme on fait une stat "special" global, je fais la moyenne de l'atq spé et def spé du pokemon
+                let moyenne = (infoPokemon[3] + ( ((2 * uneStat["base_stat"]) * lvlPokemon) / 100) + 5) / 2     // 4 : speed
+                infoPokemon[3] = moyenne                                   // Comme on fait une stat "special" global, je fais la moyenne de l'atq spé et def spé du pokemon
             }        
         });
 
