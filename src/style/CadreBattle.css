@@ -72,8 +72,6 @@ img{
     height: 70px;
 }
 
-
-
 .Hp-bar{
     border: solid;
     border-color: black;
@@ -110,9 +108,30 @@ img{
         border-radius: 5px;
         margin: 5px 2px 5px 5px;
         padding-top: 5px;
-
         display: flex;
         flex-wrap: wrap;
+        background-color: #f7ebeb;
+
+        .description{
+            width: 50%;
+        }
+
+        .displayMoves{
+            margin-left: auto;
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .unMove{
+                width: 45%;
+                text-align: center;
+                padding-top: 10px;    
+                font-size: 25px;       
+                margin: 10px;
+            }
+
+        }
+
 
         label{
             margin-left: 5px;

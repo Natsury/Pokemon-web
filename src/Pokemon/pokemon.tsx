@@ -31,6 +31,7 @@ export async function GetPokemonAPI(nomPokemon:string):Promise<Pokemon | null> {
         let request = new Request(url)
         let reponse = await fetch(request)
         let json = await reponse.json()
+        let moves = await Moves(json["moves"])                              //  On récupère les abilités du pokemon
 
         const infoPokemon:any = []                                                                          // 0 : hp
         json["stats"].forEach(uneStat => {                                                                  // 1 : attaque
@@ -40,9 +41,8 @@ export async function GetPokemonAPI(nomPokemon:string):Promise<Pokemon | null> {
                 let moyenne = (infoPokemon[3] + (uneStat["base_stat"] + (statGrowth * lvlPokemon))) / 2     // 4 : speed
                 infoPokemon[3] = moyenne                                    // Comme on fait une stat "special" global, je fais la moyenne de l'atq spé et def spé du pokemon
             }        
-        });                                            
+        });
 
-        let moves = await Moves(json["moves"])                              //  On récupère les abilités du pokemon
 
         let typesDuPokemon:type[] = []
 
