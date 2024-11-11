@@ -1,5 +1,5 @@
 import { explication } from "../Interfaces/IExplication.ts"
-import { getExplication } from "../tools/toolBox.tsx"
+import { getExplication } from "../Tools/toolBox.tsx"
 
 /**
  * Remplace le label de descritpion par la descrition du bouton hover
