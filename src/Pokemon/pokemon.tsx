@@ -1,7 +1,7 @@
 import { Pokemon } from '../Interfaces/IPokemon';
 import { type } from '../Interfaces/IType.ts';
 import { Moves } from './moves.tsx'
-import { getType } from '../tools/toolBox.tsx';
+import { getType } from '../Tools/toolBox.tsx';
 
 const lvlPokemon:number = 50        //  Défini le niveau des pokemon
 
